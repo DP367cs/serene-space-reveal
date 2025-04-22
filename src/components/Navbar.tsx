@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
@@ -23,7 +22,9 @@ const Navbar = () => {
   return (
     <motion.header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-white shadow-md py-3" : "bg-transparent py-6"
+        isScrolled 
+          ? "bg-white shadow-md py-3 rounded-b-2xl" 
+          : "bg-transparent py-6 rounded-b-none"
       }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
@@ -34,7 +35,6 @@ const Navbar = () => {
           <a href="#" className="text-xl md:text-2xl font-serif font-bold text-interior-charcoal">ELEGANCE</a>
         </div>
         
-        {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
           <a href="#home" className="text-interior-charcoal hover:text-interior-brown transition-colors">Home</a>
           <a href="#about" className="text-interior-charcoal hover:text-interior-brown transition-colors">About</a>
@@ -46,7 +46,6 @@ const Navbar = () => {
         
         <Button className="hidden md:inline-block btn-primary">Book Consultation</Button>
         
-        {/* Mobile Menu Button */}
         <button 
           className="md:hidden text-interior-charcoal"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -63,10 +62,9 @@ const Navbar = () => {
         </button>
       </div>
       
-      {/* Mobile Menu */}
       {isMobileMenuOpen && (
         <motion.div 
-          className="md:hidden bg-white absolute top-full left-0 right-0 shadow-md"
+          className="md:hidden bg-white absolute top-full left-0 right-0 shadow-md rounded-b-2xl"
           initial={{ opacity: 0, height: 0 }}
           animate={{ opacity: 1, height: "auto" }}
           exit={{ opacity: 0, height: 0 }}
