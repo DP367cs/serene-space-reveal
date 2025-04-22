@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -97,5 +99,54 @@
 
   body {
     @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply px-6 py-3 bg-interior-charcoal text-white font-medium rounded-none border-2 border-interior-charcoal transition-all duration-300 hover:bg-transparent hover:text-interior-charcoal;
+  }
+  
+  .section-padding {
+    @apply py-16 md:py-24;
+  }
+  
+  .container-custom {
+    @apply container mx-auto px-6 md:px-8;
+  }
+  
+  .heading-xl {
+    @apply text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight;
+  }
+  
+  .heading-lg {
+    @apply text-3xl md:text-4xl font-semibold leading-tight;
+  }
+  
+  .heading-md {
+    @apply text-2xl md:text-3xl font-semibold leading-tight;
+  }
+  
+  .service-card {
+    @apply p-6 bg-white border border-interior-beige/50 transition-all duration-300 hover:shadow-lg;
+  }
+  
+  .gallery-item {
+    @apply relative overflow-hidden group cursor-pointer;
+  }
+  
+  .gallery-overlay {
+    @apply absolute inset-0 bg-interior-charcoal/60 opacity-0 flex items-center justify-center transition-opacity duration-300 group-hover:opacity-100;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
   }
 }
