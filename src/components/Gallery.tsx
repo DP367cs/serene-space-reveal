@@ -1,3 +1,4 @@
+
 import { useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
@@ -46,7 +47,7 @@ const galleryData: GalleryItemProps[] = [
 const GalleryItem = ({ image, title, category }: GalleryItemProps) => {
   return (
     <motion.div 
-      className="gallery-item h-80 relative overflow-hidden cursor-pointer"
+      className="gallery-item group h-80 relative overflow-hidden cursor-pointer"
       whileHover={{ scale: 1.02 }}
       transition={{ duration: 0.3, ease: "easeOut" }}
     >

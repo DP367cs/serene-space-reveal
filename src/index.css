@@ -137,7 +137,7 @@
   }
   
   .gallery-item {
-    @apply relative overflow-hidden group cursor-pointer;
+    @apply relative overflow-hidden cursor-pointer;
   }
   
   .gallery-overlay {
