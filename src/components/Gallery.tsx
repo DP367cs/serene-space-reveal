@@ -1,4 +1,3 @@
-
 import { useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
@@ -46,15 +45,45 @@ const galleryData: GalleryItemProps[] = [
 // Gallery Item Component
 const GalleryItem = ({ image, title, category }: GalleryItemProps) => {
   return (
-    <div className="gallery-item h-80">
-      <img src={image} alt={title} className="w-full h-full object-cover" />
-      <div className="gallery-overlay">
+    <motion.div 
+      className="gallery-item h-80 relative overflow-hidden cursor-pointer"
+      whileHover={{ scale: 1.02 }}
+      transition={{ duration: 0.3, ease: "easeOut" }}
+    >
+      <motion.img 
+        src={image} 
+        alt={title} 
+        className="w-full h-full object-cover"
+        initial={{ scale: 1.1 }}
+        whileHover={{ scale: 1.15 }}
+        transition={{ duration: 0.6 }}
+      />
+      <motion.div 
+        className="absolute inset-0 bg-interior-charcoal/60 flex items-center justify-center"
+        initial={{ opacity: 0 }}
+        whileHover={{ opacity: 1 }}
+        transition={{ duration: 0.3 }}
+      >
         <div className="text-center text-white">
-          <h3 className="text-xl font-serif font-semibold mb-1">{title}</h3>
-          <p className="text-sm uppercase tracking-wider">{category}</p>
+          <motion.h3 
+            className="text-xl font-serif font-semibold mb-1"
+            initial={{ y: 20, opacity: 0 }}
+            whileHover={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.3, delay: 0.1 }}
+          >
+            {title}
+          </motion.h3>
+          <motion.p 
+            className="text-sm uppercase tracking-wider"
+            initial={{ y: 20, opacity: 0 }}
+            whileHover={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.3, delay: 0.2 }}
+          >
+            {category}
+          </motion.p>
         </div>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 };
 

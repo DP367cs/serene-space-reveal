@@ -1,4 +1,3 @@
-
 import { useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
@@ -44,11 +43,39 @@ const servicesData: ServiceProps[] = [
 
 const ServiceCard = ({ icon, title, description }: ServiceProps) => {
   return (
-    <div className="service-card">
-      <div className="text-4xl mb-4">{icon}</div>
-      <h3 className="text-xl font-serif font-semibold mb-3 text-interior-charcoal">{title}</h3>
-      <p className="text-gray-600">{description}</p>
-    </div>
+    <motion.div 
+      className="service-card"
+      whileHover={{ y: -5, boxShadow: "0 10px 30px -10px rgba(0,0,0,0.1)" }}
+      transition={{ duration: 0.3 }}
+    >
+      <motion.div 
+        className="text-4xl mb-4"
+        initial={{ scale: 0.5, opacity: 0 }}
+        whileInView={{ scale: 1, opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
+      >
+        {icon}
+      </motion.div>
+      <motion.h3 
+        className="text-xl font-serif font-semibold mb-3 text-interior-charcoal"
+        initial={{ y: 20, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, delay: 0.2 }}
+      >
+        {title}
+      </motion.h3>
+      <motion.p 
+        className="text-gray-600"
+        initial={{ y: 20, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, delay: 0.3 }}
+      >
+        {description}
+      </motion.p>
+    </motion.div>
   );
 };
 
